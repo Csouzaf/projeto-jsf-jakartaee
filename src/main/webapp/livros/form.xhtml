@@ -28,7 +28,7 @@
             <h:inputText value="#{adminLivrosController.livro.preco}"/>
         </div>
 
-        <h:commandButton value="Cadastrar"/>
+        <h:commandButton value="Cadastrar" actionListener="#{adminLivrosController.salvar()}"/>
     </h:form>
 </f:view>
 </html>
