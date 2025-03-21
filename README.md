@@ -30,7 +30,7 @@
         </subsystem> 
 <br>
 
-2. module: deixar na pasta - ~/wildfly-29.0.1.Final/modules/system/layers/base/org/postgresql/main
+2. module.xml: deixar na pasta - ~/wildfly-29.0.1.Final/modules/system/layers/base/org/postgresql/main, além de baixar o jar do postgres
 > <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
     <resources>
         <resource-root path="postgresql-42.7.3.jar"/>
