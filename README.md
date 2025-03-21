@@ -28,7 +28,7 @@
                 </drivers>
             </datasources>
         </subsystem> 
-<br><br>
+<br>
 
 2. module: deixar na pasta - ~/wildfly-29.0.1.Final/modules/system/layers/base/org/postgresql/main
 > <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
