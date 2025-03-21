@@ -1,5 +1,5 @@
 ﻿# projeto-jsf-javaee - Postgresql
-## Configurar standalone.xml
+1. Configurar standalone.xml
 > <subsystem xmlns="urn:jboss:domain:datasources:7.0">
             <datasources>
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
@@ -30,7 +30,7 @@
         </subsystem> 
 <br><br>
 
-## module: deixar na pasta - ~/wildfly-29.0.1.Final/modules/system/layers/base/org/postgresql/main
+2. module: deixar na pasta - ~/wildfly-29.0.1.Final/modules/system/layers/base/org/postgresql/main
 > <module xmlns="urn:jboss:module:1.1" name="org.postgresql">
     <resources>
         <resource-root path="postgresql-42.7.3.jar"/>
@@ -41,4 +41,4 @@
     </dependencies>
 </module>
 
->Dentro da pasta deve ter o module.xml  postgresql-42.6.2.jar
+3. Dentro da pasta deve ter o module.xml  postgresql-42.6.2.jar
