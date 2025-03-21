@@ -1,5 +1,5 @@
 ﻿# projeto-jsf-javaee - Postgresql
-1. Configurar standalone.xml
+1. Configurar standalone.xml - wildfly 29.0.1.Final
 > <subsystem xmlns="urn:jboss:domain:datasources:7.0">
             <datasources>
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
