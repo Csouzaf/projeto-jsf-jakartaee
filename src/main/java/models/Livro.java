@@ -23,6 +23,7 @@ public class Livro {
     private String titulo;
 
     @Lob
+    @Column(columnDefinition = "TEXT")
     private String descricao;
 
     private BigDecimal preco;
