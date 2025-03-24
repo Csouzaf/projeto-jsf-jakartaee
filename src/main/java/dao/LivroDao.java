@@ -1,18 +1,17 @@
 package dao;
 
+import jakarta.ejb.Stateless;
+import jakarta.enterprise.inject.Typed;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import models.Livro;
+import org.hibernate.annotations.Type;
 
-public class LivroDao {
+@Stateless
+public class LivroDao extends DefaultDao<Livro>{
 
-    @PersistenceContext
-    private EntityManager manager;
-
-
-    public void salvar(Livro livro) {
-
-        manager.persist(livro);
+    public LivroDao() {
+        super(Livro.class);
     }
 
 }

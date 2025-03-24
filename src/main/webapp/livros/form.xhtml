@@ -5,8 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
-<f:view>
-    <h:form>
+
+    <h:form> <h:messages globalOnly="true" />
 
         <div>
             <h:outputLabel value="Título"/>
@@ -28,7 +28,16 @@
             <h:inputText value="#{adminLivrosController.livro.preco}"/>
         </div>
 
-        <h:commandButton value="Cadastrar" actionListener="#{adminLivrosController.salvar()}"/>
+        <div>
+            <h:outputLabel value="Autores"/>
+            <h:selectManyListbox>
+                <f:selectItems value="#{adminLivrosController.autores}"
+                               var="autor"
+                               itemValue="#{autor.id}"
+                               itemLabel="#{autor.nome}"/>
+            </h:selectManyListbox>
+        </div>
+        <h:commandButton value="Cadastrar" action="#{adminLivrosController.salvar}"/>
     </h:form>
-</f:view>
+
 </html>
