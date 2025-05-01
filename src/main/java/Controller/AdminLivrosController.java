@@ -29,7 +29,6 @@ public class AdminLivrosController {
         for (Livro livro : livros) {
             listarLivros.add(livro.getTitulo());
         }
-
          return listarLivros;
     }
 
