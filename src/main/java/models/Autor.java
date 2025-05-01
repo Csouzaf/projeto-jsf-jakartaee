@@ -14,6 +14,13 @@ public class Autor {
     @Column(name="nome")
     private String nome;
 
+    @Column(name="idade")
+    private Integer idade;
+
+    public Autor() {
+
+    }
+
     public Integer getId() {
         return id;
     }
@@ -28,5 +35,13 @@ public class Autor {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    public Integer getIdade() {
+        return idade;
+    }
+
+    public void setIdade(Integer idade) {
+        this.idade = idade;
     }
 }

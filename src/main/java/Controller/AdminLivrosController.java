@@ -1,6 +1,6 @@
-import dao.DefaultDao;
+package Controller;
+
 import dao.LivroDao;
-import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -8,7 +8,7 @@ import jakarta.transaction.Transactional;
 import models.Autor;
 import models.Livro;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 import java.util.List;
 
 @Named
@@ -18,16 +18,24 @@ public class AdminLivrosController {
     @Inject
     private LivroDao livroDao;
 
+    private String livroSelecionado;
+    private List<String> listarLivros = new ArrayList<>();
     private Livro livro = new Livro();
+
+    public List<String> getlistarLivros(){
+
+        List<Livro> livros = livroDao.buscarTodos();
+
+        for (Livro livro : livros) {
+            listarLivros.add(livro.getTitulo());
+        }
+
+         return listarLivros;
+    }
 
     @Transactional
     public void salvar() {
         livroDao.salvar(livro);
-    }
-
-
-    public List<Autor> getAutores() {
-        return Arrays.asList()
     }
 
     public boolean excluir(Livro livro) {
@@ -45,4 +53,21 @@ public class AdminLivrosController {
     public void setLivro(Livro livro) {
         this.livro = livro;
     }
+
+    public String getLivroSelecionado() {
+        return livroSelecionado;
+    }
+
+    public void setLivroSelecionado(String livroSelecionado) {
+        this.livroSelecionado = livroSelecionado;
+    }
+
+//    public List<String> getListarLivros() {
+//        return listarLivros;
+//    }
+//
+//    public void setListarLivros(List<String> listarLivros) {
+//        this.listarLivros = listarLivros;
+//    }
+
 }

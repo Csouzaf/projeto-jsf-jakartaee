@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view>
+    <h:form>
+        <div class="card">
+            <h5>Vertical</h5>
+            <div class="ui-fluid">
+                <div class="field">
+                    <p:outputLabel for="firstname1" value="Nome Completo"/>
+                    <p:inputText id="firstname1" value="#{autorController.autor.nome}"/>
+                </div>
+                <div class="field">
+                    <p:outputLabel for="lastname1" value="Idade"/>
+                    <p:inputNumber id="lastname1" value="#{autorController.autor.idade}"/>
+                </div>
+            </div>
+        </div>
+
+        <p:commandButton type="button" action="#{autorController.salvar}" value="Cadastrar" styleClass="ui-button-success" />
+
+    </h:form>
+
+    <div>
+        <p:outputLabel value="Autores"/>
+        <h:selectManyListbox>
+            <f:selectItems value="#{autorController.autores}"
+                           var="autor"
+                           itemValue="#{autor.id}"
+                           itemLabel="#{autor.nome}"/>
+        </h:selectManyListbox>
+    </div>
+
+</f:view>
+</html>

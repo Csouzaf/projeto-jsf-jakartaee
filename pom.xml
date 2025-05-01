@@ -29,13 +29,13 @@
         <dependency>
             <groupId>org.primefaces</groupId>
             <artifactId>primefaces</artifactId>
-            <version>14.0.0</version>
+            <version>13.0.10</version>
             <classifier>jakarta</classifier>
         </dependency>
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-            <version>10.0.0</version>
+            <version>9.1.0</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
@@ -50,12 +50,23 @@
             <version>${junit.version}</version>
             <scope>test</scope>
         </dependency>
-
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>6.3.1.Final</version>
+            <version>5.6.15.Final</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.hibernate</groupId>-->
+<!--            <artifactId>hibernate-core</artifactId>-->
+<!--            <version>6.3.1.Final</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.glassfish</groupId>-->
+<!--            <artifactId>jakarta.faces</artifactId>-->
+<!--            <version>4.0.1</version>-->
+<!--            <scope>provided</scope>-->
+<!--        </dependency>-->
+
     </dependencies>
 
     <build>
@@ -64,6 +75,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.4.0</version>
+            </plugin>
+            <plugin>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <tasks>
+                                <copy file="${project.build.directory}/${project.build.finalName}.war"
+                                      todir="/home/caique-fonseca/Documentos/wildfly-preview-26.1.0.Final/standalone/deployments" />
+                            </tasks>
+                        </configuration>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>

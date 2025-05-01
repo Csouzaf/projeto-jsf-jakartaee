@@ -1,5 +1,5 @@
-﻿# projeto-jsf-javaee - Postgresql
-1. Configurar standalone.xml - wildfly 29.0.1.Final
+﻿# projeto-jsf-jakartaee - Postgresql - Configuração Intelij
+1. Configurar standalone.xml - wildfly -preview 26.0.1.Final jakarta 9.1
 > <subsystem xmlns="urn:jboss:domain:datasources:7.0">
             <datasources>
                 <datasource jndi-name="java:jboss/datasources/ExampleDS" pool-name="ExampleDS" enabled="true" use-java-context="true" statistics-enabled="${wildfly.datasources.statistics-enabled:${wildfly.statistics-enabled:false}}">
@@ -41,4 +41,12 @@
     </dependencies>
 </module>
 
-3. Dentro da pasta deve ter o module.xml  postgresql-42.6.2.jar
+<br>
+
+3. Dentro da pasta deve ter o module.xml  postgresql-42.7.3.jar
+
+<br>
+
+4. Pra rodar o debug add no standalone.conf
+   >Sample JPDA settings for remote socket debugging
+   >>JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
