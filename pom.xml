@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>ecommerce_javaee</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <name>ecommerce_javaee</name>
+    <artifactId>ecommerce_jakarta</artifactId>
+<!--    <version>1.0-SNAPSHOT</version>-->
+    <name>ecommerce</name>
     <packaging>war</packaging>
 
     <properties>
