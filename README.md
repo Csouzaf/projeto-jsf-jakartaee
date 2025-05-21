@@ -47,6 +47,6 @@
 
 <br>
 
-4. Pra rodar o debug add no standalone.conf
+4. Pra rodar o debug add no bin/standalone.conf
    >Sample JPDA settings for remote socket debugging
    >>JAVA_OPTS="$JAVA_OPTS -agentlib:jdwp=transport=dt_socket,address=8787,server=y,suspend=n"
