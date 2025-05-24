@@ -1,6 +1,8 @@
 package Controller;
 
 import dao.AutorDAO;
+import dao.AutorDefaultDAO;
+import dao.LivroDefaultDao;
 import jakarta.enterprise.context.RequestScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
@@ -16,15 +18,18 @@ public class AutorController {
     @Inject
     private AutorDAO autorDAO;
 
+    @Inject
+    private AutorDefaultDAO autorDefaultDao;
+
     private Autor autor = new Autor();
 
     public List<Autor> getAutores() {
-        return autorDAO.buscarTodos();
+        return autorDefaultDao.buscarTodos();
     }
 
     @Transactional
-    public void salvar(Autor autor) {
-        autorDAO.salvar(autor);
+    public void salvar() {
+        autorDefaultDao.salvar(autor);
     }
 
     public Autor getAutor() {

@@ -14,82 +14,51 @@
     <h:outputStylesheet name="primefaces.css" library="primefaces" />
 </h:head>
 
+    <div class="card ui-fluid">
 
-    <h:form> <h:messages globalOnly="true" />
+        <h:form> <h:messages globalOnly="true" />
+
+<!--            <p:selectOneMenu value="#{adminLivrosController.livro.id}">-->
+<!--                <f:selectItem itemLabel="Selecione um livro" itemValue="" />-->
+<!--                <f:selectItems value="#{adminLivrosController.listarLivros}" var="titulo"-->
+<!--                               itemLabel="#{titulo}" itemValue="#{titulo}" />-->
+<!--            </p:selectOneMenu>-->
+
+            <h5>Lista Autores -</h5>
+            <p:selectCheckboxMenu id="multiple"
+                                  multiple="true" emptyLabel="Please select..." updateLabel="true"
+                                  style="min-width: 15rem" panelStyle="width: 30rem" scrollHeight="250"
+                                  value="#{adminLivrosController.listaAutoresId}">
+                <f:selectItems value="#{adminLivrosController.listarLivrosAutores}"
+                               var="autores" itemLabel="#{autores.nome}"
+                               itemValue="#{autores.id}"
+                />
+            </p:selectCheckboxMenu>
+
+            <div>
+                <h:outputLabel value="Título"/>
+                <h:inputText value="#{adminLivrosController.livro.titulo}"/>
+            </div>
+
+            <div>
+                <h:outputLabel value="Descrição"/>
+                <h:inputTextarea rows="4" cols="20" value="#{adminLivrosController.livro.descricao}"/>
+            </div>
+
+            <div>
+                <h:outputLabel value="Número de Páginas"/>
+                <h:inputText  value="#{adminLivrosController.livro.numeroPaginas}"/>
+            </div>
+
+            <div>
+                <h:outputLabel value="Preço"/>
+                <h:inputText value="#{adminLivrosController.livro.preco}"/>
+            </div>
 
 
-        <p:selectOneMenu value="#{adminLivrosController.livroSelecionado}">
-            <f:selectItem itemLabel="Selecione um livro" itemValue="" />
-            <f:selectItems value="#{adminLivrosController.listarLivros}" var="titulo"
-                           itemLabel="#{titulo}" itemValue="#{titulo}" />
-        </p:selectOneMenu>
+            <h:commandButton value="Cadastrar" action="#{adminLivrosController.salvar}"/>
+        </h:form>
+    </div>
 
-        <div>
-            <h:outputLabel value="Título"/>
-            <h:inputText value="#{adminLivrosController.livro.titulo}"/>
-        </div>
-
-        <div>
-            <h:outputLabel value="Descrição"/>
-            <h:inputTextarea rows="4" cols="20" value="#{adminLivrosController.livro.descricao}"/>
-        </div>
-
-        <div>
-            <h:outputLabel value="Número de Páginas"/>
-            <h:inputText  value="#{adminLivrosController.livro.numeroPaginas}"/>
-        </div>
-
-        <div>
-            <h:outputLabel value="Preço"/>
-            <h:inputText value="#{adminLivrosController.livro.preco}"/>
-        </div>
-
-
-        <h:commandButton value="Cadastrar" action="#{adminLivrosController.salvar}"/>
-
-        <style>
-            button.ui-button {
-                margin-right: .5rem;
-            }
-        </style>
-
-        <div class="card">
-        <h5>Basic</h5>
-        <p:commandButton type="button" value="Submit" />
-        <p:commandButton type="button" value="Disabled" disabled="true" />
-
-        <h5>Icons</h5>
-        <p:commandButton type="button" icon="pi pi-check" title="Save"/>
-        <p:commandButton type="button" value="Submit" icon="pi pi-check" />
-        <p:commandButton type="button" value="Submit" icon="pi pi-check" iconPos="right" />
-
-        <h5>Severities</h5>
-        <p:commandButton type="button" value="Primary" />
-        <p:commandButton type="button" value="Secondary" styleClass="ui-button-secondary" />
-        <p:commandButton type="button" value="Success" styleClass="ui-button-success" />
-        <p:commandButton type="button" value="Info" styleClass="ui-button-info" />
-        <p:commandButton type="button" value="Warning" styleClass="ui-button-warning" />
-        <p:commandButton type="button" value="Help" styleClass="ui-button-help" />
-        <p:commandButton type="button" value="Danger" styleClass="ui-button-danger" />
-
-        <h5>Raised Buttons</h5>
-        <p:commandButton type="button" value="Primary" styleClass="ui-button-raised" />
-        <p:commandButton type="button" value="Secondary" styleClass="ui-button-raised ui-button-secondary" />
-        <p:commandButton type="button" value="Success" styleClass="ui-button-raised ui-button-success" />
-        <p:commandButton type="button" value="Info" styleClass="ui-button-raised ui-button-info" />
-        <p:commandButton type="button" value="Warning" styleClass="ui-button-raised ui-button-warning" />
-        <p:commandButton type="button" value="Help" styleClass="ui-button-raised ui-button-help" />
-        <p:commandButton type="button" value="Danger" styleClass="ui-button-raised ui-button-danger" />
-
-        <h5>Rounded Buttons</h5>
-        <p:commandButton type="button" value="Primary" styleClass="rounded-button" />
-        <p:commandButton type="button" value="Secondary" styleClass="rounded-button ui-button-secondary" />
-        <p:commandButton type="button" value="Success" styleClass="rounded-button ui-button-success" />
-        <p:commandButton type="button" value="Info" styleClass="rounded-button ui-button-info" />
-        <p:commandButton type="button" value="Warning" styleClass="rounded-button ui-button-warning" />
-        <p:commandButton type="button" value="Help" styleClass="rounded-button ui-button-help" />
-        <p:commandButton type="button" value="Danger" styleClass="rounded-button ui-button-danger" />
-        </div>
-    </h:form>
 
 </html>

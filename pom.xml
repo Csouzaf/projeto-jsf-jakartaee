@@ -73,7 +73,7 @@
                         <configuration>
                             <target>
                                 <copy file="${project.build.directory}/${project.build.finalName}.war"
-                                      todir="/Users/caiquesfonseca/Documents/desenvolvimento-estudo/wildfly-preview-26.0.1.Final/standalone/deployments" />
+                                      todir="/Applications/Documentos/wildfly-preview-26.0.1.Final/standalone/deployments" />
                             </target>
                         </configuration>
                     </execution>

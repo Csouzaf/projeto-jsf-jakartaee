@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name = "livro")
@@ -22,6 +24,9 @@ public class Livro {
     private BigDecimal preco;
 
     private Integer numeroPaginas;
+
+    @ManyToMany
+    private List<Autor> autores = new ArrayList<>();
 
     public Livro() {
     }
@@ -64,6 +69,14 @@ public class Livro {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Autor> getAutor() {
+        return autores;
+    }
+
+    public void setAutor(List<Autor> autores) {
+        this.autores = autores;
     }
 
     @Override

@@ -21,6 +21,10 @@ public class Autor {
 
     }
 
+    public Autor(Integer id) {
+        this.id = id;
+    }
+
     public Integer getId() {
         return id;
     }
