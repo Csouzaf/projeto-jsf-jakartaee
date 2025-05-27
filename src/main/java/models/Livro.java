@@ -28,6 +28,10 @@ public class Livro {
     @ManyToMany
     private List<Autor> autores = new ArrayList<>();
 
+    @ManyToOne()
+    @JoinColumn(name = "editora_id")
+    private Editora editora;
+
     public Livro() {
     }
 

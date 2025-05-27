@@ -81,6 +81,8 @@ public class AdminLivrosController {
             livro.getAutor().add(new Autor(autorId));
         }
         livroDefaultDao.salvar(livro);
+        this.livro = new Livro();
+        this.listaAutoresId = new Integer[0];
     }
 
     public boolean excluir(Livro livro) {
