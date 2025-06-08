@@ -8,27 +8,20 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-
     <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
     <h:outputStylesheet name="themes/saga/theme.css" library="primefaces" />
     <h:outputStylesheet name="primefaces.css" library="primefaces" />
 </h:head>
 
+<h:body>
     <div class="card ui-fluid">
-
         <h:form> <h:messages globalOnly="true" />
-
-<!--            <p:selectOneMenu value="#{adminLivrosController.livro.id}">-->
-<!--                <f:selectItem itemLabel="Selecione um livro" itemValue="" />-->
-<!--                <f:selectItems value="#{adminLivrosController.listarLivros}" var="titulo"-->
-<!--                               itemLabel="#{titulo}" itemValue="#{titulo}" />-->
-<!--            </p:selectOneMenu>-->
 
             <h5>Lista Autores</h5>
             <p:selectCheckboxMenu id="multiple"
                                   multiple="true" emptyLabel="Please select..." updateLabel="true"
                                   style="min-width: 15rem" panelStyle="width: 30rem" scrollHeight="250"
-                                  value="#{adminLivrosController.listaAutoresId}">
+                                  value="#{editoraController.listaAutoresId}">
                 <f:selectItems value="#{adminLivrosController.listarLivrosAutores}"
                                var="autores" itemLabel="#{autores.nome}"
                                itemValue="#{autores.id}"
@@ -36,29 +29,35 @@
             </p:selectCheckboxMenu>
 
             <div>
-                <h:outputLabel value="Título"/>
-                <h:inputText value="#{adminLivrosController.livro.titulo}"/>
+                <p:outputLabel value="nome"/>
+                <p:inputText value="#{editoraController.editora.nome}"/>
             </div>
 
             <div>
-                <h:outputLabel value="Descrição"/>
-                <h:inputTextarea rows="4" cols="20" value="#{adminLivrosController.livro.descricao}"/>
+                <p:outputLabel value="cnpj"/>
+                <p:inputText value="#{editoraController.editora.cnpj}"/>
             </div>
 
             <div>
-                <h:outputLabel value="Número de Páginas"/>
-                <h:inputText  value="#{adminLivrosController.livro.numeroPaginas}"/>
+                <p:outputLabel value="email"/>
+                <p:inputText value="#{editoraController.editora.email}"/>
             </div>
 
             <div>
-                <h:outputLabel value="Preço"/>
-                <h:inputText value="#{adminLivrosController.livro.preco}"/>
+                <p:outputLabel value="telefone"/>
+                <p:inputMask id="phone" value="#{editoraController.editora.telefone}" mask="(99) 9999-9999" validateMask="true" />
+            </div>
+
+            <div>
+                <p:outputLabel value="endereco"/>
+                <p:inputMask id="taxId" value="#{editoraController.editora.endereco}" mask="99-9999999" validateMask="true" />
             </div>
 
 
-            <p:commandButton value="Cadastrar" action="#{adminLivrosController.salvar}"/>
+            <p:commandButton value="Cadastrar" action="#{editoraController.salvar}" />
         </h:form>
     </div>
+</h:body>
 
 
 </html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <h:outputStylesheet name="primeicons/primeicons.css" library="primefaces" />
+    <h:outputStylesheet name="themes/saga/theme.css" library="primefaces" />
+    <h:outputStylesheet name="primefaces.css" library="primefaces" />
+</h:head>
+
+<h:body>
+    <div class="card ui-fluid">
+
+        <h5 class="mt-0">Buscar Editora</h5>
+        <p:selectCheckboxMenu id="menu"
+                              dynamic="true"
+                              filter="true" filterMatchMode="startsWith"
+                              label="Editoras" updateLabel="true"
+                              style="width: 15rem" panelStyle="width: 15rem" scrollHeight="250"
+                              value="#{editoraController.nomeEditora}">
+            <f:selectItems value="#{editoraController.buscarEditora}"/>
+
+<!--            <f:facet name="footer">-->
+<!--                <p:divider styleClass="mt-0" />-->
+<!--                <h:outputText value="#{editoraController.nomeEditora.size()} nomeEditora"-->
+<!--                              styleClass="py-1 block font-bold"/>-->
+<!--            </f:facet>-->
+        </p:selectCheckboxMenu>
+<!--        <h:form> <h:messages globalOnly="true" />-->
+
+<!--        </h:form>-->
+    </div>
+</h:body>
+
+
+</html>

@@ -35,6 +35,31 @@ public class Livro {
     public Livro() {
     }
 
+    public enum Fields {
+
+        TITULO("titulo"),
+        DESCRICAO("descricao"),
+        PRECO("preco"),
+        NUMERO_PAGINAS("numero_paginas"),
+        AUTORES("autor"),
+        EDITORA("editora");
+
+
+
+        private String fields;
+
+        private Fields(String fields){
+            this.fields = fields;
+        }
+
+        @Override
+        public String toString() {
+            return fields;
+        }
+    }
+
+
+
     public String getTitulo() {
         return titulo;
     }
@@ -83,14 +108,7 @@ public class Livro {
         this.autores = autores;
     }
 
-    @Override
-    public String toString() {
-        return "Livro{" +
-                "titulo='" + titulo + '\'' +
-                ", descricao='" + descricao + '\'' +
-                ", preco=" + preco +
-                ", numeroPaginas=" + numeroPaginas +
-                ", numeroPaginas=" + numeroPaginas +
-                '}';
-    }
+
 }
+
+

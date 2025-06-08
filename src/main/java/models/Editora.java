@@ -1,7 +1,9 @@
 package models;
 
 import jakarta.persistence.*;
-import java.time.LocalDate;
+
+import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -27,18 +29,36 @@ public class Editora {
     private String telefone;
 
     @Column(name = "criado_em")
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date criadoEm;
 
     @Column(name = "endereco")
     private String endereco;
 
     @ManyToMany
-    private List<Autor> autores;
+    private List<Autor> autores = new ArrayList<>();
 
     @OneToMany(mappedBy = "editora", fetch = FetchType.LAZY)
-    @JoinColumn(name = "editora_id")
+//    @JoinColumn(name = "editora_id")
     private List<Livro> livros;
+
+    public enum Fields {
+        NOME("nome");
+
+
+        private String fields;
+
+        private Fields(String fields){
+            this.fields = fields;
+        }
+
+        @Override
+        public String toString(){
+            return fields;
+        }
+
+    }
+
 
     public Integer getId() {
         return id;
