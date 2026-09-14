@@ -13,30 +13,32 @@
     <h:outputStylesheet name="primefaces.css" library="primefaces" />
 </h:head>
 
+<h:body>
 
-<div class="card ui-fluid">
 
-    <h:form>
-        <div class="card">
-            <h5>Cadastrar Autor</h5>
-            <div class="ui-fluid">
-                <div class="field">
-                    <p:outputLabel for="firstname1" value="Nome Completo"/>
-                    <p:inputText id="firstname1" value="#{autorController.autor.nome}"/>
-                </div>
-                <div class="field">
-                    <p:outputLabel for="lastname1" value="Idade"/>
-                    <p:inputNumber id="lastname1" value="#{autorController.autor.idade}"/>
+    <div class="card ui-fluid">
+
+        <h:form>
+            <div class="card">
+                <h5>Cadastrar Autor</h5>
+                <div class="ui-fluid">
+                    <div class="field">
+                        <p:outputLabel for="firstname1" value="Nome Completo"/>
+                        <p:inputText id="firstname1" value="#{autorController.autor.nome}"/>
+                    </div>
+                    <div class="field">
+                        <p:outputLabel for="lastname1" value="Idade"/>
+                        <p:inputNumber id="lastname1" value="#{autorController.autor.idade}"/>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <p:commandButton action="#{autorController.salvar}" value="Cadastrar" styleClass="ui-button-success" />
+            <p:commandButton action="#{autorController.salvar}" value="Cadastrar" styleClass="ui-button-success" />
 
-    </h:form>
+        </h:form>
 
 
-</div>
+    </div>
     <div>
         <p:outputLabel value="Autores"/>
         <h:selectManyListbox>
@@ -47,5 +49,29 @@
         </h:selectManyListbox>
     </div>
 
+
+
+    <div class="field col-6 md:col-4">
+        <p:outputLabel value="Simple" />
+        <p:autoComplete id="acSimple" value="#{editoraController.nomeEditora}"
+                        completeMethod="#{editoraController.listaEditoras}" scrollHeight="250">
+            <p:ajax event="itemSelect" update="option" listener="#{autorController.buscarAutoresPorNomeEditora}"/>
+        </p:autoComplete>
+
+
+
+    </div>
+
+
+    <div class="field col-6 md:col-4">
+        <p:outputLabel value="Basic"/>
+        <p:selectOneMenu id="option" value="#{autorController.nomeAutorSelecionado}">
+            <f:selectItems value="#{autorController.nomesAutores}" />
+        </p:selectOneMenu>
+    </div>
+
+
+
+</h:body>
 
 </html>

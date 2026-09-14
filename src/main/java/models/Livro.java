@@ -32,6 +32,8 @@ public class Livro {
     @JoinColumn(name = "editora_id")
     private Editora editora;
 
+
+
     public Livro() {
     }
 
@@ -42,7 +44,7 @@ public class Livro {
         PRECO("preco"),
         NUMERO_PAGINAS("numero_paginas"),
         AUTORES("autor"),
-        EDITORA("editora");
+        EDITORA("editora.id");
 
 
 

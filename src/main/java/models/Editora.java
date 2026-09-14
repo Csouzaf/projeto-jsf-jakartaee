@@ -43,8 +43,9 @@ public class Editora {
     private List<Livro> livros;
 
     public enum Fields {
-        NOME("nome");
-
+        ID("id"),
+        NOME("nome"),
+        AUTORES("autores");
 
         private String fields;
 

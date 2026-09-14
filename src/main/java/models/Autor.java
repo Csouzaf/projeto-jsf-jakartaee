@@ -2,6 +2,9 @@ package models;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "autor")
 public class Autor {
@@ -16,6 +19,22 @@ public class Autor {
 
     @Column(name="idade")
     private Integer idade;
+
+    @ManyToMany(mappedBy = "autores")
+    private List<Editora> editoras = new ArrayList<>();
+
+    @ManyToMany(mappedBy = "autores")
+    private List<Livro> livros = new ArrayList<>();
+
+    public enum Fields {
+        EDITORA("editoras");
+
+        public String fields;
+
+        private Fields(String fields){
+            this.fields = fields;
+        }
+    }
 
     public Autor() {
 
@@ -47,5 +66,13 @@ public class Autor {
 
     public void setIdade(Integer idade) {
         this.idade = idade;
+    }
+
+    public List<Editora> getEditoras() {
+     return editoras;
+    }
+
+    public void setEditoras(List<Editora> editoras){
+        this.editoras = editoras;
     }
 }

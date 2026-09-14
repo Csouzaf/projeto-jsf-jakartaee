@@ -1,8 +1,10 @@
 package Controller;
 
+import dao.AutorDAO;
 import dao.EditoraDAO;
 import dao.EditoraDefaultDAO;
 import jakarta.enterprise.context.RequestScoped;
+import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
 import jakarta.transaction.Transactional;
@@ -10,6 +12,7 @@ import models.Autor;
 import models.Editora;
 import models.Livro;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -18,8 +21,11 @@ import java.util.Date;
 import java.util.List;
 
 @Named
-@RequestScoped
-public class EditoraController {
+//@RequestScoped
+@ViewScoped
+public class EditoraController implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     @Inject
     private EditoraDAO editoraDAO;
@@ -27,12 +33,19 @@ public class EditoraController {
     @Inject
     private EditoraDefaultDAO editoraDefaultDAO;
 
+    @Inject
+    private AutorDAO autorDAO;
+
+    @Inject
+    private AutorController autorController;
+
     private String nomeEditora;
     private Editora editora = new Editora();
     private Integer editoraId;
     private List<Livro> buscarLivrosPorEditoraId = new ArrayList<>();
     private List<Integer> listaAutoresId = new ArrayList<>();
     private List<String> buscarEditora = new ArrayList<>();
+    private String nomeAutorSelecionado;
 
     public List<Livro> getBuscarLivrosPorEditoraId() {
         List<Livro> livorsPorEditora = editoraDAO.buscarListaLivrosPorEditoraId(this.editoraId);
@@ -54,9 +67,26 @@ public class EditoraController {
     public List<String> getBuscarEditora() {
         List<String> editoras = editoraDAO.buscarEditora(nomeEditora);
         return editoras;
+
     }
 
 
+    public List<String> listaEditoras(String query) {
+        List<String> editoras = editoraDAO.buscarEditora(query);
+        nomeEditora = query;
+        return editoras;
+
+    }
+
+
+    public List<String> getBuscarAutoresPorNomeEditora(){
+        List<String> nomesAutores = new ArrayList<>();
+        if(nomeEditora != null){
+            nomesAutores = autorDAO.listaNomesAutoresPorNomeEditora(nomeEditora);
+        }
+
+        return nomesAutores;
+    }
 
     public Editora getEditora() {
         return editora;
